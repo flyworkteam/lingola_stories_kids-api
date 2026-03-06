@@ -15,6 +15,8 @@ const notificationRoutes = require('./routes/notification');
 const storyRoutes = require('./routes/story');
 const libraryRoutes = require('./routes/library');
 const feedbackRoutes = require('./routes/feedback');
+const webhookRoutes = require('./routes/webhook');
+
 
 const { startScheduler, stopScheduler } = require('./services/notificationScheduler');
 const { startPremiumExpirationScheduler, stopPremiumExpirationScheduler } = require('./services/premiumExpirationScheduler');
@@ -72,6 +74,8 @@ app.use('/api/notifications', notificationRoutes);
 app.use('/api/stories', storyRoutes);
 app.use('/api/library', libraryRoutes);
 app.use('/api/feedback', feedbackRoutes);
+app.use('/api/webhooks', webhookRoutes);
+
 
 // ============================================
 // Error Handling
