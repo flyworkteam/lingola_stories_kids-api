@@ -101,6 +101,7 @@ const getUserProfile = async (req, res, next) => {
           fullName: userData.full_name,
           authProvider: userData.auth_provider,
           isGuest: !!userData.is_guest,
+          isPremium: !!userData.is_premium,
           onboardingCompleted: !!userData.onboarding_completed,
           preferredLanguage: userData.preferred_language || "en",
           profilePictureUrl: userData.profile_picture_url,
