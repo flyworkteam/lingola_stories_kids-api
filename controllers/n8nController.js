@@ -1,3 +1,5 @@
+const { pool } = require('../config/database');
+
 // Harf bazlı ElevenLabs alignment verisini, kelime bazlı (word_timestamps) formata çeviren yardımcı fonksiyon
 const convertToWords = (alignment) => {
   if (!alignment) return null;

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const revenueCatController = require('../controllers/revenueCatController');
+const n8nController = require('../controllers/n8nController');
 
 // RevenueCat Webhook Endpoint
 // POST /api/webhooks/revenuecat
