@@ -110,6 +110,7 @@ const getUserProfile = async (req, res, next) => {
           lastLoginAt: userData.last_login_at,
           createdAt: userData.created_at,
           updatedAt: userData.updated_at,
+          age: userData.age,
         },
         profile: {
           preferredCategories: categories.map((c) => c.category_name),
@@ -138,6 +139,7 @@ const updateUserProfile = async (req, res, next) => {
     const userId = req.user.id;
     const {
       full_name,
+      age,
       preferred_language,
       profile_picture_url,
     } = req.body;
@@ -153,6 +155,10 @@ const updateUserProfile = async (req, res, next) => {
     if (preferred_language !== undefined) {
       userUpdates.push("preferred_language = ?");
       userValues.push(preferred_language);
+    }
+    if (age !== undefined) {
+      userUpdates.push("age = ?");
+      userValues.push(age);
     }
     if (profile_picture_url !== undefined) {
       userUpdates.push("profile_picture_url = ?");
