@@ -347,16 +347,7 @@ const deleteAccount = async (req, res, next) => {
 
     const userId = req.user.id;
 
-    // Soft delete - just deactivate the account
-    // Foreign key constraints will handle related data deletion if needed
-    await connection.execute("UPDATE users SET is_active = 0 WHERE id = ?", [
-      userId,
-    ]);
-
-    // Delete all refresh tokens
-    await connection.execute("DELETE FROM refresh_tokens WHERE user_id = ?", [
-      userId,
-    ]);
+    await connection.execute("DELETE FROM users WHERE id = ?", [userId]);
 
     await connection.commit();
 
